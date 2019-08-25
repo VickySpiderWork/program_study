@@ -1,4 +1,3 @@
-# program_study
 def printTable(tabledate):
     colwidth = [] * len(tableData)
 
