@@ -1,5 +1,7 @@
 # 6.7 printTable
+
 def printTable(tabledate):
+
     colwidth = [] * len(tableData)
 
     for data in tableData:
