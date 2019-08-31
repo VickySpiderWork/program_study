@@ -1,25 +1,20 @@
-# 6.7 printTable
+# 8.9.2 疯狂填词
 
-def printTable(tabledate):
+import re
+new_text = open('Mad Libs_new.txt', 'w')
+text = open('Mad Libs.txt')
+content = text.read()
+text.close()
+print(content)
 
-    colwidth = [] * len(tableData)
+pattern = re.compile(r'ADJECTIVE|NOUN|ADVERB|VERB')
+mo = pattern.findall(content)
 
-    for data in tableData:
-        data_len = []
-        for d in data:
-            data_len.append(len(d))
-        colwidth.append(max(data_len))
+for word in mo:
+    print('Enter an {}'.format(word).lower())
+    repl = input()
+    regex = re.compile(word)
+    content = regex.sub(repl, content, 1)
 
-    colwidth_max = max(colwidth)
-
-    for t in range(len(tableData[0])):
-        for i in range(len(tableData)):
-            print(tableData[i][t].rjust(colwidth_max), end='')
-        print('\t')
-
-
-tableData = [['apples', 'oranges', 'cherries', 'banana'],
-             ['Alice', 'Bob', 'Carol', 'David'],
-             ['dogs', 'cats', 'moose', 'goose']]
-
-printTable(tableData)
+new_text.write(content)
+new_text.close()
