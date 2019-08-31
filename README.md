@@ -1,5 +1,4 @@
 # 8.9.2 疯狂填词
-
 import re
 new_text = open('Mad Libs_new.txt', 'w')
 text = open('Mad Libs.txt')
@@ -15,6 +14,6 @@ for word in mo:
     repl = input()
     regex = re.compile(word)
     content = regex.sub(repl, content, 1)
-
+    
 new_text.write(content)
 new_text.close()
